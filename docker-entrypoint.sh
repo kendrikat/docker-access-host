@@ -7,6 +7,5 @@ if [ $? -ne 0 ]; then
   echo -e "$HOST_IP\t$HOST_DOMAIN" >> /etc/hosts
 fi
 
-# Here is the original entry point.
-curl -sS host.docker.internal:8888
-cat /etc/hosts
+# Pass through anything from `docker-compose run`
+eval $@
